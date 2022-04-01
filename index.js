@@ -43,3 +43,20 @@ export const analyzeArray = (array) => {
 	result.length = array.length;
 	return result;
 };
+
+// let array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+export const bubbleSort = (inputArray) => {
+	let array = [...inputArray];
+	for (let i = 0; i < array.length; i++) {
+		for (let j = 0; j < array.length - i; j++) {
+			if (array[j] > array[j + 1]) {
+				let temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+			}
+		}
+	}
+
+	return array;
+};

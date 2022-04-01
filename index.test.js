@@ -1,3 +1,4 @@
+import { sort } from "semver";
 import {
 	capitalize,
 	sum,
@@ -5,6 +6,7 @@ import {
 	Calculator,
 	CaesarCipher,
 	analyzeArray,
+	bubbleSort,
 } from "./index";
 
 test("adds 1 + 2 = 3", () => {
@@ -44,4 +46,28 @@ test("analyze array working or not", () => {
 	expect(result.min).toBe(1);
 	expect(result.max).toBe(5);
 	expect(result.length).toBe(5);
+});
+
+test("Bubble sort testing when array is in descending order", () => {
+	const unsortedArrayInReverseOrder = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+	expect(bubbleSort(unsortedArrayInReverseOrder)).toStrictEqual([
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+	]);
+});
+
+test("sort testing when array is in random order", () => {
+	const unsortedRandomArray = [7, 2, 4, 9, 1, 10, 5, 3, 8, 6];
+
+	expect(bubbleSort(unsortedRandomArray)).toStrictEqual([
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+	]);
+});
+
+test("sort testing when array is already sorted", () => {
+	const sortedArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+	expect(bubbleSort(sortedArray)).toStrictEqual([
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+	]);
 });
